@@ -8,7 +8,7 @@ function VideoSection() {
             >
             </div>
 
-            <div className='p-15'>
+            <div className='p-3 sm:p-15'>
                 <video src={video} className="h-auto w-[95%] m-auto rounded-3xl" controls autoPlay></video>
             </div>
 
