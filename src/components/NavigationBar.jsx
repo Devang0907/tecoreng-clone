@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../public/images/logo.svg";
-import './animations.css';
+import './animations.css'; // Make sure you have this CSS file in place
 
 function NavigationBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -64,7 +64,7 @@ function NavigationBar() {
                 </a>
 
                 {/* Underline Effect */}
-                <span className="absolute left-0 bottom-[-10px] w-full h-[3px] bg-[#fd7e14] transform scale-x-0 origin-center transition-transform duration-600 group-hover:scale-x-100"></span>
+                <span className="absolute left-0 bottom-[-10px] w-full h-[3px] bg-[#FF6347] transform scale-x-0 origin-center transition-transform duration-600 group-hover:scale-x-100"></span>
 
 
 
@@ -140,8 +140,8 @@ function NavigationBar() {
 
       {/* Mobile Navigation */}
       <div
-        className={`sm:hidden fixed inset-0 bg-[#01132e] z-50 transition-transform transform ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`mobile-menu-wrapper sm:hidden fixed inset-0 bg-[#01132e] z-50 transition-transform transform ${
+          isMobileMenuOpen ? "translate-x-0 flip-page-open" : "translate-x-full flip-page-close"
         }`}
       >
         <div className="p-6">
