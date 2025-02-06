@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../public/images/logo.svg";
+import "./animations.css";
 
 function NavigationBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -99,7 +100,7 @@ function NavigationBar() {
       {/* Mobile Navigation */}
       <div
         className={`sm:hidden fixed inset-0 bg-[#01132e] z-50 transition-transform transform ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          isMobileMenuOpen ? "translate-x-0 flip-page-open" : "translate-x-full"
         }`}
       >
         <div className="p-6">
@@ -120,7 +121,7 @@ function NavigationBar() {
           </button>
 
           <ul className="space-y-0">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <li key={item.name} className="text-white">
                 <a
                   href={item.link}
