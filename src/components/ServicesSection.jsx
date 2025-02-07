@@ -35,7 +35,7 @@ const ServiceCard = ({ service }) => {
 
   return (
     <li 
-      className={`flex items-center justify-between p-8 cursor-pointer rounded-[25px] relative border border-white/25 transition-all duration-500 hover:p-16 
+      className={`flex flex-col md:flex-row items-center justify-between p-8 cursor-pointer rounded-[25px] relative border border-white/25 transition-all duration-500 hover:p-16 
       ${isHovered ? 'bg-gradient-to-br from-[#26426B] to-[#021634] border-[1px] border-solid rounded-[20px] border-white' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -45,11 +45,11 @@ const ServiceCard = ({ service }) => {
         href={service.href}
         className="flex-1"
       >
-        <div className="flex items-center">
+        <div className="flex flex-col md:flex-row items-center">
           <div className="w-14 h-14">
             <img src={service.icon} alt={service.title} className="w-full h-full" />
           </div>
-          <div className="ml-14">
+          <div className="mt-4 md:mt-0 md:ml-14">
             <h3 className="text-2xl font-bold">{service.title}</h3>
             <div className={`mt-8 max-w-md ${isHovered ? 'flex' : 'hidden'}`}>
               {service.description}
@@ -58,7 +58,7 @@ const ServiceCard = ({ service }) => {
         </div>
       </a>
 
-      <div className={`items-center justify-between ${isHovered ? 'flex' : 'hidden'}`}>
+      <div className={`mt-4 md:mt-0 items-center justify-between ${isHovered ? 'flex' : 'hidden'}`}>
         {service.technologies.map((tech, index) => (
           <div key={index} className="flex flex-col items-center justify-center px-6 text-base text-center">
             <div className="w-12 h-12">
@@ -149,26 +149,12 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="flex items-center px-30 py-16 bg-[#01132e] text-white">
+    <section className="flex flex-col items-center px-6 md:px-30 py-16 bg-[#01132e] text-white">
       <div className="container">
-        <h2 className="container p-0 text-5xl leading-[84px] text-shadow " style={{
-    textShadow: `
-      rgb(239, 237, 227) -1px -1px 1px, 
-      rgb(1, 19, 46) 0px 1px 0px, 
-      rgb(1, 19, 46) 0px 2px 0px, 
-      rgb(1, 19, 46) 0px 3px 0px, 
-      rgb(1, 19, 46) 0px 4px 0px, 
-      rgb(1, 19, 46) 0px 5px 0px, 
-      rgb(77, 89, 108) 0px 6px 0px, 
-      rgba(0, 0, 0, 0.9) 0px 0px 0px, 
-      rgba(0, 0, 0, 0.3) 0px 0px 0px, 
-      rgba(0, 0, 0, 0.5) 0px 0px 0px, 
-      rgba(0, 0, 0, 0.9) 0px 0px 0px
-    `,
-  }}>
+        <h2 className="container p-0 text-3xl md:text-5xl leading-tight md:leading-[84px] text-shadow-custom">
           Services We Offer
         </h2>
-        <p className="text-lg">
+        <p className="text-lg text-center md:text-left">
           We offer a full range of web app development services that make things better for enterprises and companies we work with. Our team of dedicated mobile app developers fulfils your diverse business requirements through a number of services. We specialise in the following services:
         </p>
         <div className="mt-20 w-full">
