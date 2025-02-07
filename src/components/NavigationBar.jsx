@@ -23,7 +23,7 @@ function NavigationBar() {
   ];
 
   return (
-    <div>
+    <div className="z-40 w-[100%]">
       <div className="bg-[#01132e] h-25 flex justify-between items-center border-b-[1px] border-b-[#ffffff33]">
         {/* Logo */}
         <div>
