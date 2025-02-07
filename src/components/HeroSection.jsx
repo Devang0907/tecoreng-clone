@@ -3,16 +3,16 @@ import infinity from '../../public/images/infinity.png'
 
 function HeroSection() {
   return (
-    <div className="relative min-h-screen bg-[#0B1B35] text-white px-0 py-2 sm:px-8 sm:py-16 flex items-center">
-      <div className="container mx-auto max-w-7xl">
+    <div className="relative min-h-screen bg-[#112542] text-white px-0 py-1 sm:px-8 sm:py-2 flex items-center">
+      <div className="container mx-auto max-w-7xl p-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 p-5">
-            <h1 className="text-[24px] sm:text-5xl font-medium leading-tight">
+            <h2 className="text-[24px] sm:text-[40px] font-medium leading-tight">
               Transfer your enterprise
               <br />
                 with digital innovation
-            </h1>
+            </h2>
 
             <p className="text-xs sm:text-lg text-white-300 leading-relaxed max-w-xl pb-0.5">
               Your success as a market innovator reflects our strides as a unified

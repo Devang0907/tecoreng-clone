@@ -36,7 +36,7 @@ function NavigationBar() {
             {navItems.map((item) => (
               <li
                 key={item.name}
-                className="relative text-lg pt-5 h-20 px-8 group"
+                className="relative text-lg pt-7 h-20 px-8 group"
                 onMouseEnter={() => item.subItems && setIsDropdownOpen(true)}
                 onMouseLeave={() => item.subItems && setIsDropdownOpen(false)}
               >
@@ -87,7 +87,7 @@ function NavigationBar() {
           </ul>
 
           {/* Action Buttons */}
-          <div className="pt-8">
+          <div className="pt-10">
             <button className="px-4.5 py-2 bg-transparent border border-[#f5f5f5] text-white rounded-full hover:bg-gradient-to-r hover:from-[#FFA07A] hover:to-[#FF6347] hover:border-transparent">
               Hire Developers
             </button>
