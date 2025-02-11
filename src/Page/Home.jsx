@@ -10,6 +10,8 @@ import DevelopmentProcessSection from '../components/DevelopmentProcessSection'
 import SuccessStoriesSection from '../components/SuccessStoriesSection'
 import IndustriesSection from '../components/IndustriesSection'
 import AppreciationSection from '../components/AppreciationSection'
+import InsightsSection from '../components/InsightsSection'
+import Footer from '../components/Footer'
 
 function Home() {
   return (
@@ -26,6 +28,8 @@ function Home() {
       <SuccessStoriesSection />
       <IndustriesSection />
       <AppreciationSection />
+      <InsightsSection/>
+      <Footer/>
     </>
 
   )
