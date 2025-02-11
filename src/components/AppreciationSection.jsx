@@ -1,0 +1,137 @@
+import React, { useState, useEffect, useRef } from 'react';
+import Draggable from 'react-draggable';
+
+function AppreciationSection() {
+    const testimonials = [
+        {
+            name: 'Juan S Ortiz Salazar',
+            role: 'Acme Corp',
+            text: 'They were honest about their abilities from the beginning, have fantastic communication skills, and are overall a dream to work with. Myself and my team felt beyond confident of their abilities and that they were doing the work on a week to week basis just as they stated they would. I will definitely be looking to hiring Tecoreng first before considering anyone else on Upwork!!'
+        },
+        {
+            name: 'Tim Loenders',
+            role: 'BPOS LOENDERS GCV',
+            text: 'Paresh worked out the infrastructure topology and did a fine job on that. He gave me insights about how to tackle setup that I did not have which saved the project time and money.'
+        },
+        {
+            name: 'Denis Cartin',
+            role: 'CTO, SoSFba',
+            text: 'They have good timing and quality in task solving. Their project management was outstanding. Always delivered on time and quickly replied to our needs and demands. The Communication was effective and running smoothly, with constant updates on the projects progress. They also shared significant insights and suggestions for developing the project.'
+        },
+        {
+            name: 'Chetan Patwardhan',
+            role: 'CEO, HiQuest Group of IT Companies',
+            text: 'What most impressed us about Technical Core Engineers was their commitment to delivering a service that exceeded our expectations. Their commitment to the project, dedication to excellence, and willingness to go the extra mile truly distinguish them. They demonstrated a thorough understanding of the business and adjusted their solutions to meet our specific needs.'
+        },
+        {
+            name: 'Kean Graham',
+            role: 'CEO, MonetizeMore',
+            text: 'What most impressed us about Technical Core Engineers was their wide range of knowledge and commitment to the completion of our project. They exceeded our expectations rather than meeting them. Their ability to quickly understand the difficulties of our business and personalize their solutions to our specific need was absolutely impressive.'
+        }
+    ];
+
+    const [activeSlide, setActiveSlide] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+    const carouselRef = useRef(null);
+
+    const slidesToShow = 3;
+
+    // Auto-play functionality
+    useEffect(() => {
+        if (!isPaused) {
+            const timer = setInterval(() => {
+                setActiveSlide((prev) => (prev + 1) % testimonials.length);
+            }, 1000); 
+
+            return () => clearInterval(timer);
+        }
+    }, [isPaused, testimonials.length]);
+
+    const goToSlide = (index) => {
+        setActiveSlide(index);
+        // Manually adjust the draggable position
+        carouselRef.current.style.transform = `translateX(-${(index - Math.floor(slidesToShow / 2)) * 400}px)`;
+    };
+
+    const handleDragStop = (e, data) => {
+        const width = carouselRef.current.offsetWidth / testimonials.length;
+        const newSlide = Math.round(data.x / width);
+        setActiveSlide(newSlide);
+    };
+
+    const cardStyle = {
+        margin: '10px',
+        padding: '30px',
+        height: '430px',
+        width:'350px',
+        fontSize: '16px',
+        lineHeight: '24px',
+        background: 'rgba(255, 255, 255, 0.01)',
+        boxShadow: 'rgba(255, 255, 255, 0.5) 0px 39px 56px -36px inset, rgb(255, 255, 255) 0px 7px 11px -4px inset, rgba(14, 78, 114, 0.3) 0px -82px 68px -64px inset, rgba(0, 161, 253, 0.3) 0px 98px 100px -48px inset, rgba(8, 59, 88, 0.3) 0px 4px 18px inset, rgba(13, 137, 207, 0.2) 0px 1px 40px inset',
+        backdropFilter: 'blur(12.5px)',
+        borderRadius: '25px'
+    };
+
+    const carouselStyle = {
+        transform: `translateX(-${(activeSlide - Math.floor(slidesToShow / 2)) * 400}px)`, // Adjust the width (400px) to match the slide width
+        transition: 'transform 0.5s ease-in-out'
+    };
+
+    return (
+        <section className="items-center h-auto md:h-[700px] px-4 md:px-30 bg-[#01132e] text-white">
+            <div className="w-[1200px]">
+                <h2 className="text-3xl pb-12 md:text-5xl leading-[54px] md:leading-[84px] text-shadow text-shadow-custom text-center md:text-left">
+                Appreciation from Clients
+                </h2>
+                <div
+                    className="relative h-[500px] max-w-7xl mx-auto px-4 overflow-hidden"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                >
+                    <Draggable
+                        axis="x"
+                        bounds={{ left: -((testimonials.length - slidesToShow) * 400), right: 0 }}
+                        onStop={handleDragStop}
+                    >
+                        <div className="flex items-center gap-3" style={carouselStyle} ref={carouselRef}>
+                            {testimonials.map((testimonial, index) => (
+                                <div key={index} className="min-w-[380px]">
+                                    <div style={cardStyle}>
+                                        <div className="space-y-6">
+                                            <div>
+                                                <h3 className="text-white text-[22px] font-semibold mb-1">
+                                                    {testimonial.name}
+                                                </h3>
+                                                <p className="text-[18px]">
+                                                    {testimonial.role}
+                                                </p>
+                                            </div>
+                                            <p className="text-[14px]">
+                                                {testimonial.text}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </Draggable>
+
+                    {/* Dot Navigation */}
+                    <div className="flex justify-center gap-2 mt-6">
+                        {testimonials.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => goToSlide(index)}
+                                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeSlide ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/60'
+                                    }`}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+export default AppreciationSection;
