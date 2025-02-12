@@ -12,6 +12,7 @@ import IndustriesSection from '../components/IndustriesSection'
 import AppreciationSection from '../components/AppreciationSection'
 import InsightsSection from '../components/InsightsSection'
 import Footer from '../components/Footer'
+import FormSection from '../components/FormSection'
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function Home() {
       <IndustriesSection />
       <AppreciationSection />
       <InsightsSection/>
+      <FormSection/>
       <Footer/>
     </>
 
