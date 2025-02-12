@@ -129,7 +129,7 @@ function DevelopmentProcessSection() {
                     </div>
                     <div className="text-white">
                         <h3 className="text-[22px] font-semibold mb-3">Research and Analysis</h3>
-                        <p className="text-gray-300 text-[15px]">Idea, Consultation, Research, Goal Definition, & Requirements Gathering</p>
+                        <p className="">Idea, Consultation, Research, Goal Definition, & Requirements Gathering</p>
                     </div>
                 </div>
             </div>
@@ -149,7 +149,7 @@ function DevelopmentProcessSection() {
                     <div className="flex items-center gap-8" style={{ transform: 'scale(-1, 1)' }}>
                         <div className="text-white text-right">
                             <h2 className="text-2xl font-semibold mb-3">Design</h2>
-                            <p className="text-gray-300">System Architecture Design, Wireframing, UI/UX Designing, & Prototyping</p>
+                            <p className="">System Architecture Design, Wireframing, UI/UX Designing, & Prototyping</p>
                         </div>
                         <div className="bg-[#112542] h-[150px] w-[150px] rounded-full p-6 shadow-lg"
                             style={{
@@ -186,7 +186,7 @@ function DevelopmentProcessSection() {
                     </div>
                     <div className="text-white">
                         <h3 className="text-[22px] font-semibold mb-3">Development</h3>
-                        <p className="text-gray-300 text-[15px]">Functional Implementation, Software Coding & Optimization</p>
+                        <p className="">Functional Implementation, Software Coding & Optimization</p>
                     </div>
                 </div>
             </div>
@@ -206,7 +206,7 @@ function DevelopmentProcessSection() {
                     <div className="flex items-center gap-8" style={{ transform: 'scale(-1, 1)' }}>
                         <div className="text-white text-right">
                             <h2 className="text-2xl font-semibold mb-3">Testing</h2>
-                            <p className="text-gray-300">Quality Assurance, Troubleshooting, & Testing</p>
+                            <p className="">Quality Assurance, Troubleshooting, & Testing</p>
                         </div>
                         <div className="bg-[#112542] h-[150px] w-[150px] rounded-full p-6 shadow-lg"
                             style={{
@@ -243,7 +243,7 @@ function DevelopmentProcessSection() {
                     </div>
                     <div className="text-white">
                         <h3 className="text-[22px] font-semibold mb-3">Deployment</h3>
-                        <p className="text-gray-300 text-[15px]">Launch, Beta Live, & Live</p>
+                        <p className="">Launch, Beta Live, & Live</p>
                     </div>
                 </div>
             </div>
@@ -263,7 +263,7 @@ function DevelopmentProcessSection() {
                     <div className="flex items-center gap-8" style={{ transform: 'scale(-1, 1)' }}>
                         <div className="text-white text-right">
                             <h2 className="text-2xl font-semibold mb-3">Evaluation</h2>
-                            <p className="text-gray-300">Performance Evaluation, & Analytics Implementation</p>
+                            <p className="">Performance Evaluation, & Analytics Implementation</p>
                         </div>
                         <div className="bg-[#112542] h-[150px] w-[150px] rounded-full p-6 shadow-lg"
                             style={{
@@ -300,7 +300,7 @@ function DevelopmentProcessSection() {
                     </div>
                     <div className="text-white">
                         <h3 className="text-[22px] font-semibold mb-3">Maintenance</h3>
-                        <p className="text-gray-300 text-[15px]">Monitoring, Feedback, Analysis, & Complete Support</p>
+                        <p className="">Monitoring, Feedback, Analysis, & Complete Support</p>
                     </div>
                 </div>
 
