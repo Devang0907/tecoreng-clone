@@ -23,7 +23,6 @@ function Home() {
       <ServicesSection />
       <FeatureSection />
       <SpecializationSection />
-      {/* css error which make web to slide horizontal */}
       <DevelopmentProcessSection/> 
       <SuccessStoriesSection />
       <IndustriesSection />

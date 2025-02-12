@@ -11,18 +11,18 @@ import exit from '../../public/images/ball-exit.webp'
 
 function DevelopmentProcessSection() {
     return (
-        <div className="min-h-screen bg-[#112542] p-10 flex flex-col gap-2  text-white">
+        <div className="min-h-screen w-full overflow-x-hidden bg-[#112542] p-10 flex flex-col gap-2 text-white">
 
-            <h2 className="container ml-15 p-3 text-3xl md:text-5xl leading-tight md:leading-[84px] text-shadow-custom">
+            <h2 className="container ml-[15px] p-3 text-3xl md:text-5xl leading-tight md:leading-[84px] text-shadow-custom">
             Our Development Process
             </h2>
 
             <div className='p-2'>
-                   <img src={opening} className='ml-15 w-[50px] h-auto' alt="opening" />
+                   <img src={opening} className='ml-[15px] w-[50px] h-auto' alt="opening" />
                 </div>
             {/* First Card */}
             <div
-                className="relative w-[750px] h-[275px] flex items-center ml-15 p-8 shadow-lg"
+                className="relative w-[750px] h-[275px] flex items-center ml-[15px] p-8 shadow-lg"
                 style={{
                     background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                     clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -48,9 +48,9 @@ function DevelopmentProcessSection() {
             </div>
 
             {/* Second Card  */}
-            <div className="self-end mr-15">
+            <div className="self-end mr-[15px]">
                 <div
-                    className="relative w-[750px] h-[275px] flex items-center p-8 shadow-lg"
+                    className="relative max-w-full h-[275px] flex items-center p-8 shadow-lg"
                     style={{
                         background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                         clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -79,7 +79,7 @@ function DevelopmentProcessSection() {
 
             {/* Third Card */}
             <div
-                className="relative w-[750px] h-[275px] ml-15 flex items-center p-8 shadow-lg"
+                className="relative w-[750px] h-[275px] ml-[15px] flex items-center p-8 shadow-lg"
                 style={{
                     background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                     clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -105,7 +105,7 @@ function DevelopmentProcessSection() {
             </div>
 
             {/* Four Card */}
-            <div className="self-end mr-15">
+            <div className="self-end mr-[15px]">
                 <div
                     className="relative w-[750px] h-[275px] flex items-center p-8 shadow-lg"
                     style={{
@@ -136,7 +136,7 @@ function DevelopmentProcessSection() {
 
             {/* Fifth Card */}
             <div
-                className="relative w-[750px] ml-15 h-[275px] flex items-center p-8 shadow-lg"
+                className="relative w-[750px] ml-[15px] h-[275px] flex items-center p-8 shadow-lg"
                 style={{
                     background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                     clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -162,7 +162,7 @@ function DevelopmentProcessSection() {
             </div>
 
             {/* Six Card */}
-            <div className="self-end mr-15">
+            <div className="self-end mr-[15px]">
                 <div
                     className="relative w-[750px] h-[275px] flex items-center p-8 shadow-lg"
                     style={{
@@ -193,7 +193,7 @@ function DevelopmentProcessSection() {
 
             {/* Seventh Card */}
             <div
-                className="relative ml-15 w-[750px] h-[275px] flex items-center p-8 shadow-lg"
+                className="relative ml-[15px] w-[750px] h-[275px] flex items-center p-8 shadow-lg"
                 style={{
                     background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                     clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
