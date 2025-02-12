@@ -40,12 +40,14 @@ function AppreciationSection() {
     useEffect(() => {
         if (!isPaused) {
             const timer = setInterval(() => {
-                setActiveSlide((prev) => (prev + 1) % testimonials.length);
-            }, 1000); 
+                setActiveSlide((prev) => (prev + 1) % (testimonials.length - prev));
+            }, 2000); // Slower auto-scroll for better UX
 
             return () => clearInterval(timer);
         }
     }, [isPaused, testimonials.length]);
+
+
 
     const goToSlide = (index) => {
         setActiveSlide(index);
@@ -54,8 +56,8 @@ function AppreciationSection() {
     };
 
     const handleDragStop = (e, data) => {
-        const width = carouselRef.current.offsetWidth / testimonials.length;
-        const newSlide = Math.round(data.x / width);
+        const slideWidth = 400; // Width of each card
+        const newSlide = Math.round(-data.x / slideWidth);
         setActiveSlide(newSlide);
     };
 
@@ -63,7 +65,7 @@ function AppreciationSection() {
         margin: '10px',
         padding: '30px',
         height: '430px',
-        width:'350px',
+        width: '350px',
         fontSize: '16px',
         lineHeight: '24px',
         background: 'rgba(255, 255, 255, 0.01)',
@@ -81,19 +83,27 @@ function AppreciationSection() {
         <section className="items-center h-auto md:h-[700px] px-4 md:px-30 bg-[#01132e] text-white">
             <div className="w-[1200px]">
                 <h2 className="text-3xl pb-12 md:text-5xl leading-[54px] md:leading-[84px] text-shadow text-shadow-custom text-center md:text-left">
-                Appreciation from Clients
+                    Appreciation from Clients
                 </h2>
                 <div
-                    className="relative h-[500px] max-w-7xl mx-auto px-4 overflow-hidden"
+                    className="relative h-[500px] max-w-[1160px] mx-auto px-4 overflow-hidden"
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
                     <Draggable
                         axis="x"
                         bounds={{ left: -((testimonials.length - slidesToShow) * 400), right: 0 }}
+                        position={{ x: -activeSlide * 400, y: 0 }} // Syncing position with activeSlide
                         onStop={handleDragStop}
                     >
-                        <div className="flex items-center gap-3" style={carouselStyle} ref={carouselRef}>
+                        <div
+                            className="flex items-center gap-3"
+                            ref={carouselRef}
+                            style={{
+                                transform: `translateX(-${activeSlide * 400}px)`,
+                                transition: "transform 0.5s ease-in-out", // Smooth movement effect
+                            }}
+                        >
                             {testimonials.map((testimonial, index) => (
                                 <div key={index} className="min-w-[380px]">
                                     <div style={cardStyle}>
@@ -102,20 +112,15 @@ function AppreciationSection() {
                                                 <h3 className="text-white text-[22px] font-semibold mb-1">
                                                     {testimonial.name}
                                                 </h3>
-                                                <p className="text-[18px]">
-                                                    {testimonial.role}
-                                                </p>
+                                                <p className="text-[18px]">{testimonial.role}</p>
                                             </div>
-                                            <p className="text-[14px]">
-                                                {testimonial.text}
-                                            </p>
+                                            <p className="text-[14px]">{testimonial.text}</p>
                                         </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </Draggable>
-
                     {/* Dot Navigation */}
                     <div className="flex justify-center gap-2 mt-6">
                         {testimonials.map((_, index) => (
