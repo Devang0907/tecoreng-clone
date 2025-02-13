@@ -35,7 +35,7 @@ const ServiceCard = ({ service }) => {
 
   return (
     <li
-      className={`flex flex-col md:flex-row items-center justify-between p-8 cursor-pointer rounded-[25px] relative border border-white/25 transition-all duration-500 hover:p-16 
+      className={`flex flex-col md:flex-row items-center px-3 py-5 md:p-8 cursor-pointer rounded-[25px] relative border border-white/25 transition-all duration-500 hover:p-16 
       ${isHovered ? 'bg-gradient-to-br from-[#26426B] to-[#021634] border-[1px] border-solid rounded-[20px] border-white' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -45,20 +45,20 @@ const ServiceCard = ({ service }) => {
         href={service.href}
         className="flex-1"
       >
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="w-14 h-14">
+        <div className="flex flex-row justify-normal md:justify-normal items-center">
+          <div className="h-12 w-12 mr-[50px] md:m-0 md:w-14 md:h-14">
             <img src={service.icon} alt={service.title} className="w-full h-full" />
           </div>
-          <div className="mt-4 md:mt-0 md:ml-14">
-            <h3 className="text-2xl font-bold">{service.title}</h3>
-            <div className={`mt-8 text-[16px] max-w-md ${isHovered ? 'flex' : 'hidden'}`}>
+          <div className="md:mt-0 md:ml-14">
+            <h3 className="text-[18px] md:text-2xl md:font-medium">{service.title}</h3>
+            <div className={`invisible md:visible mt-8 text-[16px] max-w-md ${isHovered ? 'flex' : 'hidden'}`}>
               {service.description}
             </div>
           </div>
         </div>
       </a>
 
-      <div className={`mt-4 md:mt-0 items-center justify-between ${isHovered ? 'flex' : 'hidden'}`}>
+      <div className={`invisible md:visible mt-4 md:mt-0 items-center justify-between ${isHovered ? 'flex' : 'hidden'}`}>
         {service.technologies.map((tech, index) => (
           <div key={index} className="flex flex-col items-center justify-center px-6 text-base text-center">
             <div className="w-12 h-12">
@@ -155,15 +155,15 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="flex flex-col items-center px-6 md:px-30 py-16 bg-[#01132e] text-white">
+    <section className="flex flex-col items-center px-3 py-5 md:px-30 md:py-16 bg-[#01132e] text-white">
       <div className="container">
-        <h2 className="container p-0 text-3xl md:text-5xl leading-tight md:leading-[84px] text-shadow-custom">
+        <h2 className="container pb-5 md:p-0 text-2xl md:text-5xl leading-tight md:leading-[84px] text-shadow-custom">
           Services We Offer
         </h2>
-        <p className="text-lg text-center md:text-left">
+        <p className="text-[12px] md:text-[16px] text-left">
           We offer a full range of web app development services that make things better for enterprises and companies we work with. Our team of dedicated mobile app developers fulfils your diverse business requirements through a number of services. We specialise in the following services:
         </p>
-        <div className="mt-20 w-full">
+        <div className="mt-10 md:mt-20 w-full">
           <ul className="p-0 list-none flex flex-col gap-10">
             {services.map((service, index) => (
               <ServiceCard key={index} service={service} />
