@@ -86,20 +86,20 @@ function DevelopmentProcessSection() {
     }, []);
 
     return (
-        <div className="min-h-screen w-full overflow-x-hidden bg-[#112542] p-10 flex flex-col gap-2 text-white" ref={componentRef}>
-            <h2 className="container ml-[15px] p-3 text-3xl md:text-5xl leading-tight md:leading-[84px] text-shadow-custom">
+        <div className="w-full sm:min-h-screen sm:p-10 flex flex-col gap-2 text-white bg-[#112542] overflow-x-hidden" ref={componentRef}>
+            <h2 className="ml-4 sm:ml-10 p-3 text-3xl sm:text-5xl leading-tight sm:leading-[84px] text-shadow-custom">
                 Our Development Process
             </h2>
 
-            <div className='pt-2 w-[200px] flex justify-center'>
-                <img src={opening} className='ml-[15px] w-[50px] h-auto' alt="opening" />
+            <div className='hidden pt-2 w-[200px] sm:flex justify-center'>
+                <img src={opening} className='ml-[15px] w-[50px] h-auto invisible sm:visible' alt="opening" />
                 {/* Add animated ball */}
                 <div 
                     className='absolute w-[70px] h-[70px] transition-transform duration-500 ease-in-out'
                     style={{ transform: ballTransform }}
                 >
                     <img
-                        className='w-full h-full'
+                        className='w-full h-full invisible sm:visible'
                         src='/images/ball-3d.svg'
                         alt="rolling ball"
                     />
@@ -109,7 +109,7 @@ function DevelopmentProcessSection() {
             {/* Rest of your existing JSX remains exactly the same */}
             {/* First Card */}
             <div
-                className="relative w-[750px] h-[275px] flex items-center ml-[15px] p-8 shadow-lg"
+                className="relative h-[100px] w-[280px] sm:w-[750px] sm:h-[275px] flex items-center ml-[15px] p-2 sm:p-8 shadow-lg"
                 style={{
                     background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                     clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -117,8 +117,8 @@ function DevelopmentProcessSection() {
                     boxShadow: '0px 8px 10px rgba(0, 0, 0, 0.25)'
                 }}
             >
-                <div className="flex items-center gap-8">
-                    <div className="bg-[#112542] h-[150px] w-[150px] rounded-full p-6 shadow-lg hover:scale-110 transition-transform duration-300"
+                <div className="flex items-center sm:gap-8">
+                    <div className="bg-[#112542] h-[40px] w-[40px] sm:h-[150px] sm:w-[150px] rounded-full sm:p-6 shadow-lg hover:scale-110 transition-transform duration-300"
                         style={{
                             backgroundImage: 'linear-gradient(140deg, rgb(38, 66, 107) 3.04%, rgb(2, 22, 52) 70%), linear-gradient(rgb(255, 255, 255), transparent 60%) !important',
                             boxShadow: 'rgb(1, 19, 46) 0px 12px 17px',
@@ -128,8 +128,8 @@ function DevelopmentProcessSection() {
                         <img src={p1} alt="" />
                     </div>
                     <div className="text-white">
-                        <h3 className="text-[22px] font-semibold mb-3">Research and Analysis</h3>
-                        <p className="">Idea, Consultation, Research, Goal Definition, & Requirements Gathering</p>
+                        <h3 className="text-[10px] sm:text-[22px] font-semibold mb-3">Research and Analysis</h3>
+                        <p className="text-[8px] sm:text-[16px]">Idea, Consultation, Research, Goal Definition, & Requirements Gathering</p>
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@ function DevelopmentProcessSection() {
            {/* Second Card  */}
             <div className="self-end mr-[15px]">
                 <div
-                    className="relative max-w-full h-[275px] flex items-center p-8 shadow-lg"
+                    className="relative h-[100px] w-[250px] sm:w-[750px] sm:h-[275px] flex items-center p-2 sm:p-8 shadow-lg"
                     style={{
                         background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                         clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -148,10 +148,10 @@ function DevelopmentProcessSection() {
                 >
                     <div className="flex items-center gap-8" style={{ transform: 'scale(-1, 1)' }}>
                         <div className="text-white text-right">
-                            <h2 className="text-2xl font-semibold mb-3">Design</h2>
-                            <p className="">System Architecture Design, Wireframing, UI/UX Designing, & Prototyping</p>
+                            <h2 className="text-[10px] sm:text-[22px]">Design</h2>
+                            <p className="text-[8px] sm:text-[16px]">System Architecture Design, Wireframing, UI/UX Designing, & Prototyping</p>
                         </div>
-                        <div className="bg-[#112542] h-[150px] w-[150px] rounded-full p-6 shadow-lg"
+                        <div className="bg-[#112542] h-[40px] w-[40px] sm:h-[150px] sm:w-[150px] rounded-full sm:p-6 shadow-lg"
                             style={{
                                 backgroundImage: 'linear-gradient(140deg, rgb(38, 66, 107) 3.04%, rgb(2, 22, 52) 70%), linear-gradient(rgb(255, 255, 255), transparent 60%) !important',
                                 boxShadow: 'rgb(1, 19, 46) 0px 12px 17px',
@@ -166,7 +166,7 @@ function DevelopmentProcessSection() {
 
             {/* Third Card */}
             <div
-                className="relative w-[750px] h-[275px] ml-[15px] flex items-center p-8 shadow-lg"
+                className="relative h-[100px] w-[250px] sm:w-[750px] sm:h-[275px] ml-[15px] flex items-center p-2 sm:p-8 shadow-lg"
                 style={{
                     background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                     clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -175,7 +175,7 @@ function DevelopmentProcessSection() {
                 }}
             >
                 <div className="flex items-center gap-8">
-                    <div className="bg-[#112542] h-[150px] w-[150px] rounded-full p-6 shadow-lg"
+                    <div className="bg-[#112542] h-[50px] w-[50px] sm:h-[150px] sm:w-[150px] rounded-full sm:p-6 shadow-lg"
                         style={{
                             backgroundImage: 'linear-gradient(140deg, rgb(38, 66, 107) 3.04%, rgb(2, 22, 52) 70%), linear-gradient(rgb(255, 255, 255), transparent 60%) !important',
                             boxShadow: 'rgb(1, 19, 46) 0px 12px 17px',
@@ -185,8 +185,8 @@ function DevelopmentProcessSection() {
                         <img src={p3} alt="" />
                     </div>
                     <div className="text-white">
-                        <h3 className="text-[22px] font-semibold mb-3">Development</h3>
-                        <p className="">Functional Implementation, Software Coding & Optimization</p>
+                        <h3 className="text-[10px] sm:text-[22px] font-semibold mb-3">Development</h3>
+                        <p className="text-[8px] sm:text-[16px]">Functional Implementation, Software Coding & Optimization</p>
                     </div>
                 </div>
             </div>
@@ -194,7 +194,7 @@ function DevelopmentProcessSection() {
             {/* Four Card */}
             <div className="self-end mr-[15px]">
                 <div
-                    className="relative w-[750px] h-[275px] flex items-center p-8 shadow-lg"
+                    className="relative h-[100px] w-[250px] sm:w-[750px] sm:h-[275px] flex items-center p-2 sm:p-8 shadow-lg"
                     style={{
                         background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                         clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -205,10 +205,10 @@ function DevelopmentProcessSection() {
                 >
                     <div className="flex items-center gap-8" style={{ transform: 'scale(-1, 1)' }}>
                         <div className="text-white text-right">
-                            <h2 className="text-2xl font-semibold mb-3">Testing</h2>
-                            <p className="">Quality Assurance, Troubleshooting, & Testing</p>
+                            <h2 className="text-[10px] sm:text-[22px] font-semibold mb-3">Testing</h2>
+                            <p className="text-[8px] sm:text-[16px]">Quality Assurance, Troubleshooting, & Testing</p>
                         </div>
-                        <div className="bg-[#112542] h-[150px] w-[150px] rounded-full p-6 shadow-lg"
+                        <div className="bg-[#112542] h-[40px] w-[40px] sm:h-[150px] sm:w-[150px] rounded-full sm:p-6 shadow-lg"
                             style={{
                                 backgroundImage: 'linear-gradient(140deg, rgb(38, 66, 107) 3.04%, rgb(2, 22, 52) 70%), linear-gradient(rgb(255, 255, 255), transparent 60%) !important',
                                 boxShadow: 'rgb(1, 19, 46) 0px 12px 17px',
@@ -223,7 +223,7 @@ function DevelopmentProcessSection() {
 
             {/* Fifth Card */}
             <div
-                className="relative w-[750px] ml-[15px] h-[275px] flex items-center p-8 shadow-lg"
+                className="relative h-[100px] w-[250px] sm:w-[750px] sm:h-[275px] ml-[15px] flex items-center p-2 sm:p-8 shadow-lg"
                 style={{
                     background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                     clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -232,7 +232,7 @@ function DevelopmentProcessSection() {
                 }}
             >
                 <div className="flex items-center gap-8">
-                    <div className="bg-[#112542] h-[150px] w-[150px] rounded-full p-6 shadow-lg"
+                    <div className="bg-[#112542] h-[40px] w-[40px] sm:h-[150px] sm:w-[150px] rounded-full sm:p-6 shadow-lg"
                         style={{
                             backgroundImage: 'linear-gradient(140deg, rgb(38, 66, 107) 3.04%, rgb(2, 22, 52) 70%), linear-gradient(rgb(255, 255, 255), transparent 60%) !important',
                             boxShadow: 'rgb(1, 19, 46) 0px 12px 17px',
@@ -242,8 +242,8 @@ function DevelopmentProcessSection() {
                         <img src={p5} alt="" />
                     </div>
                     <div className="text-white">
-                        <h3 className="text-[22px] font-semibold mb-3">Deployment</h3>
-                        <p className="">Launch, Beta Live, & Live</p>
+                        <h3 className="text-[10px] sm:text-[22px] font-semibold mb-3">Deployment</h3>
+                        <p className="text-[8px] sm:text-[16px]">Launch, Beta Live, & Live</p>
                     </div>
                 </div>
             </div>
@@ -251,7 +251,7 @@ function DevelopmentProcessSection() {
             {/* Six Card */}
             <div className="self-end mr-[15px]">
                 <div
-                    className="relative w-[750px] h-[275px] flex items-center p-8 shadow-lg"
+                    className="relative h-[100px] w-[250px] sm:w-[750px] sm:h-[275px] flex items-center pp-2 sm:p-8 shadow-lg"
                     style={{
                         background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                         clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -262,10 +262,10 @@ function DevelopmentProcessSection() {
                 >
                     <div className="flex items-center gap-8" style={{ transform: 'scale(-1, 1)' }}>
                         <div className="text-white text-right">
-                            <h2 className="text-2xl font-semibold mb-3">Evaluation</h2>
-                            <p className="">Performance Evaluation, & Analytics Implementation</p>
+                            <h2 className="text-[10px] sm:text-[22px] font-semibold mb-3">Evaluation</h2>
+                            <p className="text-[8px] sm:text-[16px]">Performance Evaluation, & Analytics Implementation</p>
                         </div>
-                        <div className="bg-[#112542] h-[150px] w-[150px] rounded-full p-6 shadow-lg"
+                        <div className="bg-[#112542] h-[40px] w-[40px] sm:h-[150px] sm:w-[150px] rounded-full sm:p-6 shadow-lg"
                             style={{
                                 backgroundImage: 'linear-gradient(140deg, rgb(38, 66, 107) 3.04%, rgb(2, 22, 52) 70%), linear-gradient(rgb(255, 255, 255), transparent 60%) !important',
                                 boxShadow: 'rgb(1, 19, 46) 0px 12px 17px',
@@ -280,7 +280,7 @@ function DevelopmentProcessSection() {
 
             {/* Seventh Card */}
             <div
-                className="relative ml-[15px] w-[750px] h-[275px] flex items-center p-8 shadow-lg"
+                className="relative ml-[15px] h-[100px] w-[250px] sm:w-[750px] sm:h-[275px] flex items-center p-2 sm:p-8 shadow-lg"
                 style={{
                     background: 'linear-gradient(93.98deg, rgb(38, 66, 107) 3.93%, rgba(0, 23, 56, 0.42) 97.99%)',
                     clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 50%, 0% -1%)',
@@ -289,7 +289,7 @@ function DevelopmentProcessSection() {
                 }}
             >
                 <div className="flex items-center gap-8">
-                    <div className="bg-[#112542] h-[150px] w-[150px] rounded-full p-6 shadow-lg"
+                    <div className="bg-[#112542] h-[40px] w-[40px] sm:h-[150px] sm:w-[150px] rounded-full sm:p-6 shadow-lg"
                         style={{
                             backgroundImage: 'linear-gradient(140deg, rgb(38, 66, 107) 3.04%, rgb(2, 22, 52) 70%), linear-gradient(rgb(255, 255, 255), transparent 60%) !important',
                             boxShadow: 'rgb(1, 19, 46) 0px 12px 17px',
@@ -299,13 +299,13 @@ function DevelopmentProcessSection() {
                         <img src={p7} alt="" />
                     </div>
                     <div className="text-white">
-                        <h3 className="text-[22px] font-semibold mb-3">Maintenance</h3>
-                        <p className="">Monitoring, Feedback, Analysis, & Complete Support</p>
+                        <h3 className="text-[10px] sm:text-[22px] font-semibold mb-3">Maintenance</h3>
+                        <p className="text-[8px] sm:text-[16px]">Monitoring, Feedback, Analysis, & Complete Support</p>
                     </div>
                 </div>
 
             </div>
-            <img src={exit} className='ml-[750px] h-[50px] w-[170px]' alt="" />
+            <img src={exit} className='ml-[750px] h-[50px] w-[170px] invisible sm:visible' alt="" />
 
 
         </div>
