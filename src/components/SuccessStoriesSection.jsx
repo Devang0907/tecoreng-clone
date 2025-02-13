@@ -32,7 +32,7 @@ function SuccessStoriesSection() {
                     {stories.map((story, index) => (
                         <div
                             key={index}
-                            className="bg-[#112542] group rounded-[17px] h-auto md:h-[490px] w-full md:w-[350px] flex flex-col relative overflow-hidden text-white"
+                            className="bg-[#112542] p-4 md:p-0 group rounded-[17px] h-auto md:h-[490px] w-full md:w-[350px] flex flex-col relative overflow-hidden text-white"
                         >
 
                             {/* Content Container */}
@@ -43,11 +43,11 @@ function SuccessStoriesSection() {
                                     <video src={story.video_url} loop muted autoPlay className='h-full w-full object-cover invisible group-hover:visible'></video>
                                 </div>
 
-                                <div className="py-2 px-3 md:px-5 text-left">
+                                <div className="pt-5 md:py-2 px-3 md:px-5 text-left">
                                     <h3 className="text-[18px] md:text-[22px] font-normal pb-2">
                                         {story.title}
                                     </h3>
-                                    <p className="text-white text-[10px] md:text-[12px] leading-[20px] md:leading-[25px]">
+                                    <p className="text-white text-[12px] md:text-[12px] leading-[20px] md:leading-[25px]">
                                         {story.description}
                                     </p>
                                 </div>

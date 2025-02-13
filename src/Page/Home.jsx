@@ -25,12 +25,12 @@ function Home() {
       <FeatureSection />
       <SpecializationSection />
       <DevelopmentProcessSection/> 
-      {/* <SuccessStoriesSection />
+      <SuccessStoriesSection />
       <IndustriesSection />
       <AppreciationSection />
       <InsightsSection/>
       <FormSection/>
-      <Footer/> */}
+      <Footer/>
     </>
 
   )
