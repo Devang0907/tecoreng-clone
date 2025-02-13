@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 function SpecializationSection() {
+    // ... all state and functions remain exactly the same ...
     const [activeIndex, setActiveIndex] = useState(1);
     const [isShaking, setIsShaking] = useState(false);
     const [direction, setDirection] = useState(null);
     const [ishover, Setishover] = useState(false);
 
+    // ... services and models arrays remain exactly the same ...
     const services = [
         {
             icon: "/images/ui.png",
@@ -34,7 +36,6 @@ function SpecializationSection() {
         }
     ];
 
-    // models array
     const models = [
         {
             title: 'Hire Full-time Developer',
@@ -56,8 +57,6 @@ function SpecializationSection() {
             return () => clearTimeout(timer);
         }
     }, [isShaking]);
-
-    const extendedServices = [...services, ...services, ...services];
 
     const handleCardClick = (index) => {
         const newIndex = (index + services.length) % services.length;
@@ -88,18 +87,18 @@ function SpecializationSection() {
     };
 
     return (
-        <section className="items-center px-30 py-12 bg-[#01132e] text-white">
+        <section className="items-center px-4 sm:px-30 py-5 bg-[#01132e] text-white">
             <div className="container">
-                <h2 className="container p-0 text-5xl leading-[84px] text-shadow-custom">
+                <h2 className="container p-0 text-2xl sm:text-5xl leading-[1.2] sm:leading-[84px] text-shadow-custom">
                     Our Specialization
                 </h2>
-                <p className="text-md pt-10">
+                <p className="text-[12px] pt-7 leading-[20px] sm:leading-[30px] sm:text-[17px] sm:pt-10">
                     We offer a full range of web app development services that make things better for enterprises and companies we work with. Our team of dedicated mobile app developers fulfils your diverse business requirements through a number of services. We specialise in the following services:
                 </p>
             </div>
 
             {/* carousel */}
-            <div className="flex items-center justify-center relative w-full max-w-5xl pl-15 pt-25">
+            <div className="flex items-center justify-center relative w-full max-w-5xl pl-4 sm:pl-15 pt-10 sm:pt-25">
                 <style jsx>{`
                     @keyframes shakeCenter {
                         0%, 100% { transform: scale(1) translateX(0); }
@@ -126,7 +125,7 @@ function SpecializationSection() {
                         animation: shakeRight 0.5s ease-in-out;
                     }
                 `}</style>
-                <div className="flex items-center justify-center -space-x-8">
+                <div className="flex items-center justify-center -space-x-26 sm:-space-x-8">
                     {getVisibleCards().map((service, index) => (
                         <div
                             key={index}
@@ -138,8 +137,8 @@ function SpecializationSection() {
                                 rounded-lg
                                 
                                 ${index === 1
-                                    ? 'bg-white p-8 z-20 transform scale-100 h-[400px] w-[600px]'
-                                    : 'bg-[#414e62] h-[200px] w-[300px] p-6 transform scale-90 hover:scale-95'
+                                    ? 'bg-white p-4 sm:p-8 z-20 transform scale-100 h-[250px] sm:h-[400px] w-[250px] sm:w-[600px]'
+                                    : 'bg-[#414e62] sm:m-0  h-[160px] sm:h-[200px] w-[140px] sm:w-[300px]  p-3 sm:p-6 transform scale-90 hover:scale-95'
                                 }
                                 ${index === 0 ? 'z-10' : ''}
                                 ${index === 2 ? 'z-10' : ''}
@@ -149,29 +148,24 @@ function SpecializationSection() {
                                 backdropFilter: index !== 1 ? 'blur(2px)' : 'none',
                             }}
                         >
-                            <div className="flex flex-col items-center text-center space-y-4 p-10">
+                            <div className="flex flex-col items-center text-center space-y-2 sm:space-y-4 p-2 sm:p-10">
                                 <img
                                     src={service.icon}
                                     alt={service.title}
                                     className={`
-                                        ${index === 1 ? 'w-20 h-20 transition-all duration-500' : 'w-10 h-10 transition-all duration-500'}
-                                        transition-colors duration-500
+                                        ${index === 1 ? 'w-10 h-10 sm:w-20 sm:h-20' : 'w-6 h-6 sm:w-10 sm:h-10'}
+                                        transition-all duration-500
                                     `}
                                 />
-
                                 <h3 className={`
-                                    ${index === 1 ? 'text-black text-[22px] font-bold' : 'text-black font-semibold text-[10px]'}
+                                    ${index === 1 ? 'text-black text-base sm:text-[22px] font-bold' : 'text-black font-semibold text-[8px] sm:text-[10px]'}
                                     transition-colors duration-500
                                 `}>
                                     {service.title}
                                 </h3>
-
-                                <p
-                                    className={`text-black transition-colors duration-500
-                                    ${index === 1 ? 'text-[14px] line-clamp-4' : 'text-[8px] text-black line-clamp-2'}
-                                    transition-colors duration-500
-                                   `}
-                                >
+                                <p className={`text-black transition-colors duration-500
+                                    ${index === 1 ? 'text-xs sm:text-[14px] line-clamp-4' : 'text-[6px] sm:text-[8px] text-black line-clamp-2'}
+                                `}>
                                     {service.description}
                                 </p>
                             </div>
@@ -181,28 +175,26 @@ function SpecializationSection() {
             </div>
 
             {/* Model div */}
-
             <div className="container pt-20">
-                <h2 className="container text-5xl leading-[84px] text-shadow text-shadow-custom">
+                <h2 className="container text-2xl sm:text-5xl leading-[1.2] sm:leading-[84px] text-shadow-custom">
                     Our Flexible Engagement Models
                 </h2>
-                <p className="text-md pt-4 w-[90%]">
+                <p className="text-[12px] leading-[25px] sm:text-[16px] sm:leading-[30px] pt-4 w-[90%]">
                     Our team is your partner for the next big digital leap. Our customized and
                     highly flexible engagement models are designed to meet business objectives.
                     All of our service engagements are focused on customer satisfaction, and we
                     ensure that clear communication is maintained throughout.
                 </p>
 
-                <div className="flex mt-5">
+                <div className="flex flex-col sm:flex-row mt-5 gap-4 sm:gap-0">
                     {models.map((model, index) => (
                         <div
                             key={index}
-                            className="rounded-[17px] h-[375px] flex mr-5 flex-col  border border-amber-50 
-                 relative overflow-hidden group transition-all duration-700"
+                            className="rounded-[17px] h-[270px] sm:h-[375px] flex sm:mr-5 flex-col border border-amber-50 
+                            relative overflow-hidden group transition-all duration-700"
                         >
-                            {/* Expanding Background Layer (Fills Entire Card on Hover) */}
                             <div className="rounded-[17px] absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.58)_0%,rgba(1,19,46,0)_100%),linear-gradient(91.17deg,rgb(255,255,255)_-93.64%,rgb(129,179,255)_98.85%)] 
-                      transition-all duration-700 h-[115px] group-hover:h-full"></div>
+                      transition-all duration-700 h-[90px] sm:h-[115px] group-hover:h-full"></div>
 
                             {/* Content Container */}
                             <div className="relative z-10 flex flex-col h-full">
@@ -217,7 +209,7 @@ function SpecializationSection() {
                                 </div>
 
                                 <div className="p-4 transition-all duration-700">
-                                    <p className="text-white text-[16px] leading-relaxed group-hover:text-[#151515]">
+                                    <p className="text-white text-[13px] leading-relaxed group-hover:text-[#151515]">
                                         {model.description}
                                     </p>
                                 </div>
@@ -225,10 +217,7 @@ function SpecializationSection() {
                         </div>
                     ))}
                 </div>
-
-
             </div>
-
         </section>
     );
 }
