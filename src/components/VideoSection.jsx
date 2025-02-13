@@ -80,9 +80,9 @@ function VideoSection() {
 
   return (
     <div className="bg-[#01132e]">
-      <div className="bg-gradient-to-b from-[#5A82A0] via-[#1A486E] to-transparent opacity-50 h-14"></div>
+      <div className="bg-gradient-to-b from-[#5A82A0] via-[#1A486E] to-transparent opacity-50 h-5 sm:h-14"></div>
 
-      <div className="p-3 sm:p-15 relative">
+      <div className="p-4 sm:p-15 relative">
         {/* Small Video (Always Visible) */}
         <video
           ref={smallVideoRef}
@@ -95,7 +95,7 @@ function VideoSection() {
 
         {/* Play Button */}
         <span
-          className="absolute right-32 bottom-23 h-[100px] w-[100px] p-8 bg-gradient-to-r from-[#03142e] to-[#223d65] cursor-pointer rounded-full flex justify-center"
+          className="absolute bottom-7 right-8 h-[40px] p-2 sm:right-32 sm:bottom-23 sm:h-[100px] sm:w-[100px] sm:p-8 bg-gradient-to-r from-[#03142e] to-[#223d65] cursor-pointer rounded-full flex justify-center"
           onClick={handleFullScreenToggle}
         >
           <img src={play_img} alt="Play" />
