@@ -34,14 +34,14 @@ const ServiceCard = ({ service }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <li 
+    <li
       className={`flex flex-col md:flex-row items-center justify-between p-8 cursor-pointer rounded-[25px] relative border border-white/25 transition-all duration-500 hover:p-16 
       ${isHovered ? 'bg-gradient-to-br from-[#26426B] to-[#021634] border-[1px] border-solid rounded-[20px] border-white' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <a 
-        aria-label={service.title} 
+      <a
+        aria-label={service.title}
         href={service.href}
         className="flex-1"
       >
@@ -51,7 +51,7 @@ const ServiceCard = ({ service }) => {
           </div>
           <div className="mt-4 md:mt-0 md:ml-14">
             <h3 className="text-2xl font-bold">{service.title}</h3>
-            <div className={`mt-8 max-w-md ${isHovered ? 'flex' : 'hidden'}`}>
+            <div className={`mt-8 text-[16px] max-w-md ${isHovered ? 'flex' : 'hidden'}`}>
               {service.description}
             </div>
           </div>
@@ -67,6 +67,12 @@ const ServiceCard = ({ service }) => {
             <div className="mt-2">{tech.name}</div>
           </div>
         ))}
+        <div className='h-[40px] w-[40px] bg-gradient-to-r border border-0 from-[#f47b55] to-[#ff3d00] rounded-full flex justify-center items-center hover:bg-none hover:border'>
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.9791 8.55562C21.3696 8.16509 21.3696 7.53193 20.9791 7.1414L14.6152 0.777442C14.2246 0.386917 13.5915 0.386917 13.2009 0.777442C12.8104 1.16797 12.8104 1.80113 13.2009 2.19166L18.8578 7.84851L13.2009 13.5054C12.8104 13.8959 12.8104 14.5291 13.2009 14.9196C13.5915 15.3101 14.2246 15.3101 14.6152 14.9196L20.9791 8.55562ZM0.726563 8.84851L20.272 8.84851L20.272 6.84851L0.726562 6.84851L0.726563 8.84851Z" fill="white"></path>
+          </svg>
+        </div>
+
       </div>
     </li>
   );
