@@ -103,23 +103,6 @@ function NavigationBar() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-white text-2xl p-4"
           >
-            {isMobileMenuOpen ? (
-              /* Close Icon */
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              /* Hamburger Icon */
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -133,21 +116,21 @@ function NavigationBar() {
                   d="M4 6h16M4 12h16m-7 6h7"
                 />
               </svg>
-            )}
+            
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       <div
-        className={`mobile-menu-wrapper sm:hidden fixed inset-0 bg-[#01132e] z-50 transition-transform transform ${
+        className={`mobile-menu-wrapper w-[31%] sm:hidden fixed inset-0 bg-[#01132e] z-50 transition-transform transform ${
           isMobileMenuOpen ? "translate-x-0 flip-page-open" : "translate-x-full flip-page-close"
         }`}
       >
         <div className="p-6">
           <button
             onClick={() => setIsMobileMenuOpen(false)}
-            className="absolute top-4 right-4 text-white text-2xl"
+            className="absolute top-10 right-4 text-white text-2xl"
           >
             {/* Close Icon */}
             <svg
