@@ -138,7 +138,7 @@ function SpecializationSection() {
                                 
                                 ${index === 1
                                     ? 'bg-white p-4 sm:p-8 z-20 transform scale-100 h-[250px] sm:h-[400px] w-[250px] sm:w-[600px]'
-                                    : 'bg-[#414e62] sm:m-0  h-[160px] sm:h-[200px] w-[140px] sm:w-[300px]  p-3 sm:p-6 transform scale-90 hover:scale-95'
+                                    : 'bg-[#414e62] h-[160px] sm:h-[200px] w-[140px] sm:w-[300px]  p-3 sm:p-5 transform scale-90 hover:scale-95'
                                 }
                                 ${index === 0 ? 'z-10' : ''}
                                 ${index === 2 ? 'z-10' : ''}
