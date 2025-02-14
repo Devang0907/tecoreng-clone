@@ -49,16 +49,25 @@ function InsightsSection() {
 
     const [activeSlide, setActiveSlide] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    let [slideWidth, SetSlideWidth] = useState(350);
     const carouselRef = useRef(null);
 
     const slidesToShow = 2;
-    const slideWidth = 350;
+
+
+    useEffect(() => {
+        if (window.innerWidth < 600) {
+            SetSlideWidth(300);
+        }
+    }, [])
 
     // Auto-play functionality
     useEffect(() => {
         if (!isPaused) {
             const timer = setInterval(() => {
-                setActiveSlide((prev) => (prev + 1) % (insights.length-prev));
+
+                setActiveSlide((prev) => (prev + 1) % (insights.length - prev));
+
             }, 2000);
 
             return () => clearInterval(timer);
@@ -66,7 +75,10 @@ function InsightsSection() {
     }, [isPaused, insights.length]);
 
     useEffect(() => {
-        carouselRef.current.style.transform = `translateX(-${activeSlide * (slideWidth+16)}px)`;
+        if (window.innerWidth < 600) {
+            slideWidth = 300;
+        }
+        carouselRef.current.style.transform = `translateX(-${activeSlide * (slideWidth + 16)}px)`;
     }, [activeSlide]);
 
     const handleDragStop = (e, data) => {
@@ -75,13 +87,13 @@ function InsightsSection() {
     };
 
     return (
-        <section className="items-center h-[850px] px-4 bg-[#01132e] text-white">
+        <section className="items-center h-[1000px] px-4 bg-[#01132e] text-white">
             <div className="max-w-[1200px] mx-auto">
                 <h2 className="text-3xl pl-16 pb-6 md:text-5xl leading-[54px] md:leading-[84px] text-shadow text-shadow-custom text-center md:text-left">
                     Tecoreng insights
                 </h2>
                 <div
-                    className="relative h-full w-[1100px] mx-auto px-4 overflow-hidden"
+                    className="relative h-full w-[350px] sm:w-[1100px] mx-auto px-4 overflow-hidden"
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
@@ -94,10 +106,9 @@ function InsightsSection() {
                             {insights.map((insight, index) => (
                                 <div
                                     key={index}
-                                    className="bg-[#112542] rounded-[17px] h-full flex-shrink-0 relative overflow-hidden text-white"
-                                    style={{ width: `${slideWidth}px` }}
+                                    className="bg-[#112542]  w-[300px] sm:w-[350px] rounded-[17px] h-full flex-shrink-0 relative overflow-hidden text-white"
                                 >
-                                    <div className="relative z-10 h-[650px] flex flex-col ">
+                                    <div className="relative z-10 w-[300px] sm:w-[350px] sm:h-[650px] flex flex-col ">
                                         <div className='h-[230px] w-full'>
                                             <img src={insight.img_url} className='h-full w-full object-cover' alt={insight.title} />
                                         </div>
@@ -107,7 +118,7 @@ function InsightsSection() {
                                                 {insight.title}
                                             </h3>
                                             <p className="text-[12px] text-[#9ca3af] leading-[20px] mb-2">{insight.date} - {insight.author}</p>
-                                            <p className="text-white text-[14px] leading-[20px]">
+                                            <p className="text-white text-[12px] sm:text-[14px] sm:leading-[20px]">
                                                 {insight.description}
                                             </p>
                                         </div>

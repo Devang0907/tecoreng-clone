@@ -123,7 +123,7 @@ function NavigationBar() {
 
       {/* Mobile Navigation */}
       <div
-        className={`mobile-menu-wrapper w-[100%] sm:hidden fixed inset-0 bg-[#01132e] z-50 transition-transform transform ${
+        className={`mobile-menu-wrapper w-[100%] sm:hidden fixed inset-0 bg-[#112542] z-50 transition-transform transform ${
           isMobileMenuOpen ? "translate-x-0 flip-page-open" : "translate-x-full flip-page-close"
         }`}
       >
