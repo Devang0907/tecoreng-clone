@@ -40,7 +40,13 @@ function AppreciationSection() {
     useEffect(() => {
         if (!isPaused) {
             const timer = setInterval(() => {
-                setActiveSlide((prev) => (prev + 1) % (testimonials.length - prev));
+                if(window.innerWidth>600){
+                    setActiveSlide((prev) => (prev + 1) % (testimonials.length - prev));
+                }
+                else{
+                    setActiveSlide((prev) => (prev + 1) % (testimonials.length));
+                }
+                
             }, 2000); // Slower auto-scroll for better UX
 
             return () => clearInterval(timer);
@@ -61,60 +67,62 @@ function AppreciationSection() {
         setActiveSlide(newSlide);
     };
 
+    const position=()=>{
+        if(window.innerWidth>600){
+            return { x: -activeSlide * 400, y: 0 };
+        }
+        else{
+            return { x: -activeSlide * 340, y: 0 };
+        }
+        
+    }
+
     const cardStyle = {
-        margin: '10px',
-        padding: '30px',
-        height: '430px',
-        width: '350px',
-        fontSize: '16px',
-        lineHeight: '24px',
         background: 'rgba(255, 255, 255, 0.01)',
         boxShadow: 'rgba(255, 255, 255, 0.5) 0px 39px 56px -36px inset, rgb(255, 255, 255) 0px 7px 11px -4px inset, rgba(14, 78, 114, 0.3) 0px -82px 68px -64px inset, rgba(0, 161, 253, 0.3) 0px 98px 100px -48px inset, rgba(8, 59, 88, 0.3) 0px 4px 18px inset, rgba(13, 137, 207, 0.2) 0px 1px 40px inset',
         backdropFilter: 'blur(12.5px)',
         borderRadius: '25px'
     };
 
-    const carouselStyle = {
-        transform: `translateX(-${(activeSlide - Math.floor(slidesToShow / 2)) * 400}px)`, // Adjust the width (400px) to match the slide width
-        transition: 'transform 0.5s ease-in-out'
-    };
+    
 
     return (
-        <section className="items-center h-auto md:h-[700px] px-4 md:px-30 bg-[#01132e] text-white">
-            <div className="w-[1200px]">
-                <h2 className="text-3xl pb-12 md:text-5xl leading-[54px] md:leading-[84px] text-shadow text-shadow-custom text-center md:text-left">
+        <section className="items-center h-auto md:h-[700px] px-2 md:px-30 bg-[#01132e] text-white">
+            <div className="w-[360px] sm:w-[1200px]">
+                <h2 className="text-2xl pb-5 sm:pb-12 md:text-5xl leading-[54px] md:leading-[84px] text-shadow text-shadow-custom text-center md:text-left">
                     Appreciation from Clients
                 </h2>
                 <div
-                    className="relative h-[500px] max-w-[1160px] mx-auto px-4 overflow-hidden"
+                    className="relative h-[500px] max-w-[340px] sm:max-w-[1160px] mx-auto px-4 overflow-hidden"
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
                     <Draggable
                         axis="x"
                         bounds={{ left: -((testimonials.length - slidesToShow) * 400), right: 0 }}
-                        position={{ x: -activeSlide * 400, y: 0 }} // Syncing position with activeSlide
+                        position={position()}
                         onStop={handleDragStop}
                     >
                         <div
-                            className="flex items-center gap-3"
+                            // className="flex items-center gap-5 sm:gap-3"
                             ref={carouselRef}
-                            style={{
-                                transform: `translateX(-${activeSlide * 400}px)`,
-                                transition: "transform 0.5s ease-in-out", // Smooth movement effect
-                            }}
+                            className={`flex items-center gap-5 sm:gap-3 transform transition-transform duration-500 ease-in-out -translate-x-[${activeSlide * 320}px] sm:-translate-x-[${activeSlide * 400}px]`}
                         >
                             {testimonials.map((testimonial, index) => (
-                                <div key={index} className="min-w-[380px]">
-                                    <div style={cardStyle}>
+                                
+                                <div key={index} className="max-w-[350px] sm:min-w-[380px]">
+                                    
+                                    <div className="m-[10px] p-[30px] h-[380px] sm:h-[430px] w-[300px] sm:w-[350px] text-[12px] sm:text-[16px] leading-[20px] sm:leading-[24px]"
+                                    style={cardStyle}
+                                    >
                                         <div className="space-y-6">
                                             <div>
-                                                <h3 className="text-white text-[22px] font-semibold mb-1">
+                                                <h3 className="text-white text-[20px] sm:text-[22px] font-semibold mb-1">
                                                     {testimonial.name}
                                                 </h3>
-                                                <p className="text-[18px]">{testimonial.role}</p>
+                                                <p className="text-[14px] sm:text-[18px]">{testimonial.role}</p>
                                             </div>
-                                            <p className="text-[14px]">{testimonial.text}</p>
+                                            <p className="text-[12px] sm:text-[14px]">{testimonial.text}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +130,7 @@ function AppreciationSection() {
                         </div>
                     </Draggable>
                     {/* Dot Navigation */}
-                    <div className="flex justify-center gap-2 mt-6">
+                    <div className="flex sm:justify-center gap-2 mt-6">
                         {testimonials.map((_, index) => (
                             <button
                                 key={index}
