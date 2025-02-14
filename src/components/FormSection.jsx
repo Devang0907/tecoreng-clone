@@ -29,7 +29,7 @@ const FormSection = () => {
       };
 
     return (
-        <section className="flex bg-[#03142e] pt-6 sm:pt-0 sm:px-15 min-h-screen bg-navy-900">
+        <section className="flex bg-[#03142e] h-[800px] sm:h-[950px] pt-6 sm:pt-0 sm:px-15 bg-navy-900">
 
             {/* Left Section */}
 
