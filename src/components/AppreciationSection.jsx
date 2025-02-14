@@ -130,7 +130,7 @@ function AppreciationSection() {
                         </div>
                     </Draggable>
                     {/* Dot Navigation */}
-                    <div className="flex sm:justify-center gap-2 mt-6">
+                    <div className="flex  sm:justify-center ml-30 gap-2 mt-6">
                         {testimonials.map((_, index) => (
                             <button
                                 key={index}
