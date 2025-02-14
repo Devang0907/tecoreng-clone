@@ -87,9 +87,9 @@ function InsightsSection() {
     };
 
     return (
-        <section className="items-center h-[1000px] px-4 bg-[#01132e] text-white">
+        <section className="items-center h-[650px] sm:h-[850px] px-4 bg-[#01132e] text-white">
             <div className="max-w-[1200px] mx-auto">
-                <h2 className="text-3xl pl-16 pb-6 md:text-5xl leading-[54px] md:leading-[84px] text-shadow text-shadow-custom text-center md:text-left">
+                <h2 className="text-2xl pl-16 pb-2 sm:pb-6 md:text-5xl leading-[54px] md:leading-[84px] text-shadow text-shadow-custom md:text-left">
                     Tecoreng insights
                 </h2>
                 <div
