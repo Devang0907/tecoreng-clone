@@ -24,7 +24,7 @@ function LandingComponent() {
 
                     {/* Get Started Button */}
                     <div className="flex justify-start mt-6 md:mt-25">
-                        <button class="md:w-60 w-30 sm:mt-10 bg-gradient-to-r from-[#F47B55] to-[#FF3D00] text-white text-sm sm:text-3xl py-1 px-0.5 sm:py-3 sm:px-2 border-b-4 border-[#701d04] font-bold rounded-xl transform transition-all duration-200 hover:-translate-y-1 hover:border-b-[5px] active:translate-y-0 active:border-b-4">
+                        <button className="md:w-60 w-30 sm:mt-10 bg-gradient-to-r from-[#F47B55] to-[#FF3D00] text-white text-sm sm:text-3xl py-1 px-0.5 sm:py-3 sm:px-2 border-b-4 border-[#701d04] font-bold rounded-xl transform transition-all duration-200 hover:-translate-y-1 hover:border-b-[5px] active:translate-y-0 active:border-b-4">
 
                             GET STARTED
                         </button>

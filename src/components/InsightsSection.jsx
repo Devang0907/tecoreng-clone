@@ -5,35 +5,35 @@ function InsightsSection() {
     const insights = [
         {
             title: 'Deliver Business Results More Quickly With Hybrid Cloud Services',
-            description: "It is now possible to move between a private, in-house cloud and a public cloud provided by a third party. This arrangement’s flexibility enables organizations to effectively govern their data. An on-site, private data center and a public cloud are typically connected to create a hybrid cloud. Personal assets like additional clouds, edge devices, etc. […]",
+            description: "It is now possible to move between a private, in-house cloud and a public cloud provided by a third party. This arrangement’s flexibility enables organizations to effectively govern their data. An on-site, private data center and a public cloud are typically connected to create a hybrid cloud. Personal assets like additional clouds, edge devices, etc. ...",
             img_url: "/images/ti-1.jpg",
             date: '14-07-2022',
             author: 'Paresh Solanki'
         },
         {
             title: 'Top Trends in AI and ML Reshaping the world of 2024',
-            description: "Brief Overview of AI and ML In the realm of technology, two groundbreaking forces are poised to shape our future: Artificial Intelligence (AI) and Machine Learning (ML). AI, the intelligence demonstrated by machines, and ML, the ability of machines to learn from data, stand as the vanguards of a digital revolution. These technologies are not […]",
+            description: "Brief Overview of AI and ML In the realm of technology, two groundbreaking forces are poised to shape our future: Artificial Intelligence (AI) and Machine Learning (ML). AI, the intelligence demonstrated by machines, and ML, the ability of machines to learn from data, stand as the vanguards of a digital revolution. These technologies are not ...",
             img_url: "/images/ti-2.webp",
             date: '25-01-2024',
             author: 'Tecoreng'
         },
         {
             title: 'What Is DevOps? and 7 Types Of DevOps Tool',
-            description: "What Is DevOps? That is a combination of practices that merge software development and IT operations. That is much faster than the traditional software development process—the tools and design to increase an organization’s ability to deliver applications and quick services. Tecoreng release in simple terms, DevOps is about breaking down the walls that have traditionally […]",
+            description: "What Is DevOps? That is a combination of practices that merge software development and IT operations. That is much faster than the traditional software development process—the tools and design to increase an organization’s ability to deliver applications and quick services. Tecoreng release in simple terms, DevOps is about breaking down the walls that have traditionally ...",
             img_url: "/images/ti-3.jpg",
             date: '20-01-2023',
             author: 'Paresh Solanki'
         },
         {
             title: 'React Native For Web: Knowing everything, from the basics to the experts',
-            description: "React Native for Web: Building Cross-Platform Applications is a dynamic and avant-garde approach to contemporary app development that has altered the way developers produce cross-platform applications. React Native for online is emerging as a potent toolkit that bridges the gap between online and mobile development in response to the constantly increasing need for unified user […]",
+            description: "React Native for Web: Building Cross-Platform Applications is a dynamic and avant-garde approach to contemporary app development that has altered the way developers produce cross-platform applications. React Native for online is emerging as a potent toolkit that bridges the gap between online and mobile development in response to the constantly increasing need for unified user ...",
             img_url: "/images/ti-4.webp",
             date: '06-10-2023',
             author: 'Paresh Solanki'
         },
         {
             title: 'What Is DevOps? Top DevOps Trends 2023',
-            description: "Within the context of contemporary software development and IT operations, DevOps is a critical and revolutionary methodology. The very phrase “DevOps” is a combination of the words “development” and “operations,” signifying the fundamental idea of merging these two historically distinct fields. DevOps is a cultural movement that strives to promote cooperation, communication, and automation between […]",
+            description: "Within the context of contemporary software development and IT operations, DevOps is a critical and revolutionary methodology. The very phrase “DevOps” is a combination of the words “development” and “operations,” signifying the fundamental idea of merging these two historically distinct fields. DevOps is a cultural movement that strives to promote cooperation, communication, and automation between ...",
             img_url: "/images/ti-5.webp",
             date: '17-10-2023',
             author: 'Paresh Solanki'
@@ -108,7 +108,7 @@ function InsightsSection() {
                                     key={index}
                                     className="bg-[#112542]  w-[300px] sm:w-[350px] rounded-[17px] h-full flex-shrink-0 relative overflow-hidden text-white"
                                 >
-                                    <div className="relative z-10 w-[300px] sm:w-[350px] sm:h-[650px] flex flex-col ">
+                                    <div className="relative h-full z-10 w-[300px] sm:w-[350px] sm:h-[650px] flex flex-col ">
                                         <div className='h-[230px] w-full'>
                                             <img src={insight.img_url} className='h-full w-full object-cover' alt={insight.title} />
                                         </div>

@@ -1,10 +1,13 @@
-import React, { useRef , useState} from 'react';
+import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
 
 const FormSection = () => {
     const recaptcha = useRef(null);
-    const [selectedCountry,setSelectedCountry] = useState('IN')
-    
+    const [selectedCountry, setSelectedCountry] = useState('IN')
+
     const countries = [
         { code: "ZZ", name: "International" },
         { code: "AF", name: "Afghanistan" },
@@ -22,14 +25,43 @@ const FormSection = () => {
         { code: "AU", name: "Australia" },
         { code: "FR", name: "France" },
         { code: "DE", name: "Germany" }
-      ];
+    ];
 
-      const handleCountryChange = (event) => {
+    const phoneRegExp = /^[0-9]{10}$/g;
+    const SignupSchema = Yup.object().shape({
+        fullName: Yup.string()
+            .min(2, 'Too Short!')
+            .max(50, 'Too Long!')
+            .required('Required'),
+        phoneNumber: Yup.string()
+            .matches(phoneRegExp, 'Phone number is not valid')
+            .required('Required'),
+        email: Yup.string()
+            .email('Invalid email')
+            .required('Required'),
+        textBox: Yup.string()
+    });
+
+    const formik = useFormik({
+        initialValues: {
+            fullName: '',
+            phoneNumber: '',
+            email: '',
+            textBox: ''
+        },
+        onSubmit: values => {
+            console.log(values);
+        },
+        validationSchema: SignupSchema
+    });
+
+
+    const handleCountryChange = (event) => {
         setSelectedCountry(event.target.value);
-      };
+    };
 
     return (
-        <section className="flex bg-[#03142e] h-[800px] sm:h-[950px] pt-6 sm:pt-0 sm:px-15 bg-navy-900">
+        <section className="flex bg-[#03142e] h-[870px] sm:h-[950px] pt-6 sm:pt-0 sm:px-15 bg-navy-900">
 
             {/* Left Section */}
 
@@ -46,7 +78,7 @@ const FormSection = () => {
                                 <span>biz.tecoreng</span>
                             </div>
                             <div className="flex items-center p-5 space-x-2">
-                            <img src="/images/f-mb.svg" alt="" />
+                                <img src="/images/f-mb.svg" alt="" />
                                 <span>+91 8587 45476</span>
                             </div>
                         </div>
@@ -56,13 +88,13 @@ const FormSection = () => {
                         <h3 className="text-[36px] font-bold mb-4">Our Socials</h3>
                         <p className="text-[16px] font-semibold mb-4">Don't Miss To Follow Us On Our Social Networks Accounts.</p>
                         <div className="flex space-x-4">
-                             <img src="/images/f-x.svg" alt="" />
-                             <img src="/images/f-f.svg" alt="" />
-                             <img src="/images/f-li.svg" alt="" />
-                             <img src="/images/f-pin.svg" alt="" />
-                             <img src="/images/f-be.svg" alt="" />
-                             <img src="/images/f-bf.svg" alt="" />
-                             <img src="/images/f-md.svg" alt="" />
+                            <img src="/images/f-x.svg" alt="" />
+                            <img src="/images/f-f.svg" alt="" />
+                            <img src="/images/f-li.svg" alt="" />
+                            <img src="/images/f-pin.svg" alt="" />
+                            <img src="/images/f-be.svg" alt="" />
+                            <img src="/images/f-bf.svg" alt="" />
+                            <img src="/images/f-md.svg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -76,13 +108,23 @@ const FormSection = () => {
                         We are always ready to help. There are many ways to contact us. You may drop us a line, give us a call, send an email.
                     </p>
 
-                    <form className="space-y-4">
+                    <form className="space-y-4" onSubmit={formik.handleSubmit}>
                         <div>
                             <input
                                 type="text"
                                 placeholder="Full Name"
                                 className="w-full p-3 border-b-2 border-[#767676] focus:outline-none"
+                                name='fullName'
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.fullName}
                             />
+
+                            {formik.errors.fullName && formik.touched.fullName && (
+                                <div className="mt-1 text-red-500 text-xs bg-red-100 p-1 rounded">
+                                    {formik.errors.fullName}
+                                </div>
+                            )}
                         </div>
 
                         <div className="relative">
@@ -110,7 +152,16 @@ const FormSection = () => {
                                 type="tel"
                                 placeholder="Contact number"
                                 className="w-full py-2 pl-16 border-b-2 border-[#767676] focus:outline-none"
+                                name='phoneNumber'
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.phoneNumber}
                             />
+                            {formik.errors.phoneNumber && formik.touched.phoneNumber && (
+                                <div className="mt-1 text-red-500 text-xs bg-red-100 p-1 rounded">
+                                    {formik.errors.phoneNumber}
+                                </div>
+                            )}
                         </div>
 
                         <div>
@@ -118,7 +169,16 @@ const FormSection = () => {
                                 type="email"
                                 placeholder="E-mail"
                                 className="w-full p-3 border-b-2 border-[#767676] focus:outline-none"
+                                name='email'
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.email}
                             />
+                            {formik.errors.email && formik.touched.email && (
+                                <div className="mt-1 text-red-500 text-xs bg-red-100 p-1 rounded">
+                                    {formik.errors.email}
+                                </div>
+                            )}
                         </div>
 
                         <div className='mb-[25px]'>
@@ -126,7 +186,16 @@ const FormSection = () => {
                                 placeholder="Let's talk about your idea"
                                 rows={1}
                                 className="w-full p-3 border-b-2 border-[#767676] focus:outline-none"
+                                name='textBox'
+                                onChange={formik.handleChange}
+                                value={formik.values.textBox}
+                                onBlur={formik.handleBlur}
                             />
+                            {formik.errors.textBox && formik.touched.textBox && (
+                                <div className="mt-1 text-red-500 text-xs bg-red-100 p-1 rounded">
+                                    {formik.errors.textBox}
+                                </div>
+                            )}
                         </div>
 
                         <div className="border-dashed border-2 border-gray-300 rounded-md p-4 text-center">
@@ -144,7 +213,12 @@ const FormSection = () => {
                             <ReCAPTCHA sitekey={import.meta.env.VITE_SITE_KEY} ref={recaptcha} />
                         </div>
 
-                        <button className="w-full  sm:mt-3 bg-gradient-to-r from-[#F47B55] to-[#FF3D00] text-white text-sm sm:text-3xl py-1 px-0.5 sm:py-3 sm:px-2 border-b-4 border-[#701d04] font-semibold rounded-xl transform transition-all duration-200 hover:-translate-y-1 hover:border-b-[5px] active:translate-y-0 active:border-b-4">
+                        <button
+                            className={`w-full sm:mt-3 bg-gradient-to-r from-[#F47B55] to-[#FF3D00] text-white text-sm sm:text-3xl py-1 px-0.5 sm:py-3 sm:px-2 border-b-4 border-[#701d04] font-semibold rounded-xl transform transition-all duration-200 hover:-translate-y-1 hover:border-b-[5px] active:translate-y-0 active:border-b-4 ${!formik.isValid ? 'opacity-50 cursor-not-allowed' : ''
+                                }`}
+                            type='submit'
+                            disabled={!formik.isValid}
+                        >
                             SUBMIT
                         </button>
                     </form>
